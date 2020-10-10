@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    ".vscode": true,
+    ".gitignore": true,
+    "CMakeLists.txt": true,
+    ".idea": true
+  },
+  "cmake.configureOnOpen": true,
+  "files.associations": {
+    "algorithm": "cpp"
+  }
+}

@@ -1,0 +1,3 @@
+C:/Users/Michael/Documents/VSCode/lab-two-cpp/build/CMakeFiles/LabTwoCpp.dir
+C:/Users/Michael/Documents/VSCode/lab-two-cpp/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Michael/Documents/VSCode/lab-two-cpp/build/CMakeFiles/ZERO_CHECK.dir

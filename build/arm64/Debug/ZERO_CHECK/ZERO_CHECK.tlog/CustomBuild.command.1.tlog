@@ -1,0 +1,10 @@
+^C:\USERS\MICHAEL\DOCUMENTS\VSCODE\LAB-TWO-CPP\BUILD\CMAKEFILES\2D107B570F02F1CE3DF8A89EA56146F9\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Michael/Documents/VSCode/lab-two-cpp -BC:/Users/Michael/Documents/VSCode/lab-two-cpp/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Michael/Documents/VSCode/lab-two-cpp/build/LabTwoCpp.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

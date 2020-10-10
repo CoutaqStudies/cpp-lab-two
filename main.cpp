@@ -3,57 +3,59 @@
 #include <stack>
 #include <random>
 #include "Photographer.h"
+#include <ctime>
 
 
 int getRandomNumber(int min, int max);
 
 int main() {
-    Photographer ph0;
-    ph0.setFirstName("A");
-    ph0.setLastName("B");
-    ph0.setGender("C");
-    ph0.setRating(3);
-    ph0.setYearOfBirth(2000);
-    ph0.setYearOfCareerStart(2015);
-    Photographer ph1;
-    ph1.setFirstName("X");
-    ph1.setLastName("Y");
-    ph1.setGender("Z");
-    ph1.setRating(4.3);
-    ph1.setYearOfBirth(2000);
-    ph1.setYearOfCareerStart(2015);
-    Photographer ph2 = Photographer("test", "d", "m", 2, 1950, 2001);
-    Photographer *phHeap = new Photographer[2];
-    phHeap[0] = ph0;
-    phHeap[1] = ph1;
-    std::stack<Photographer> phStack;
-    phStack.push(ph2);
-    srand(static_cast<unsigned int>(time(0)));
-    int reviews = getRandomNumber(0, 50);
-    if(reviews>=10){
-        double rating = getRandomNumber(0, 10)/10.0;
-        ph0.setRating(ph0.getRating()+rating);
-        rating = getRandomNumber(0, 10)/10.0;
-        ph1.setRating(ph1.getRating()+rating);
-        rating = getRandomNumber(0, 10)/10.0;
-        ph2.setRating(ph2.getRating()+rating);
-    }
-    if(ph0.getRating() >= ph1.getRating() && ph2.getRating() <= ph1.getRating()){
-        ph0.printInfo();
-    }else if(ph2.getRating() > ph1.getRating()){
-        ph2.printInfo();
-        ph1.printInfo();
-    }else if (ph0.getRating() < ph1.getRating()){
-        if(ph1.getRating()> ph2.getRating()){
-            ph1.printInfo();
-            ph2.printInfo();
-            ph0.printInfo();
-        } else{
-            ph2.printInfo();
-            ph1.printInfo();
-            ph0.printInfo();
-        }
-    }
+    std::cout << "hello world" << std::endl;
+    // Photographer ph0;
+    // ph0.setFirstName("A");
+    // ph0.setLastName("B");
+    // ph0.setGender("C");
+    // ph0.setRating(3);
+    // ph0.setYearOfBirth(2000);
+    // ph0.setYearOfCareerStart(2015);
+    // Photographer ph1;
+    // ph1.setFirstName("X");
+    // ph1.setLastName("Y");
+    // ph1.setGender("Z");
+    // ph1.setRating(4.3);
+    // ph1.setYearOfBirth(2000);
+    // ph1.setYearOfCareerStart(2015);
+    // Photographer ph2 = Photographer("test", "d", "m", 2, 1950, 2001);
+    // Photographer *phHeap = new Photographer[2];
+    // phHeap[0] = ph0;
+    // phHeap[1] = ph1;
+    // std::stack<Photographer> phStack;
+    // phStack.push(ph2);
+    // srand(static_cast<unsigned int>(time(0)));
+    // int reviews = getRandomNumber(0, 50);
+    // if(reviews>=10){
+    //     double rating = getRandomNumber(0, 10)/10.0;
+    //     ph0.setRating(ph0.getRating()+rating);
+    //     rating = getRandomNumber(0, 10)/10.0;
+    //     ph1.setRating(ph1.getRating()+rating);
+    //     rating = getRandomNumber(0, 10)/10.0;
+    //     ph2.setRating(ph2.getRating()+rating);
+    // }
+    // if(ph0.getRating() >= ph1.getRating() && ph2.getRating() <= ph1.getRating()){
+    //     ph0.printInfo();
+    // }else if(ph2.getRating() > ph1.getRating()){
+    //     ph2.printInfo();
+    //     ph1.printInfo();
+    // }else if (ph0.getRating() < ph1.getRating()){
+    //     if(ph1.getRating()> ph2.getRating()){
+    //         ph1.printInfo();
+    //         ph2.printInfo();
+    //         ph0.printInfo();
+    //     } else{
+    //         ph2.printInfo();
+    //         ph1.printInfo();
+    //         ph0.printInfo();
+    //     }
+    // }
 
 
     return 0;
