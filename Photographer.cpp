@@ -12,6 +12,7 @@
 рейтинга.*/
 #include "Photographer.h"
 #include <iostream>
+#include <random>
 
 Photographer::Photographer() {
 
@@ -83,7 +84,14 @@ void Photographer::deserialize(const std::string&filename){
 Photographer::~Photographer() {
 
 }
-
+void Photographer::takeSomePictures(){
+    std::srand(time(0));
+    int amountOfVotes = (rand() % 100) + 1;
+    if(amountOfVotes>10){
+        float newRating = float((rand() + 1)%10)/10;
+        this->rating+=newRating;
+    }
+}
 void Photographer::printInfo() {
     std::cout<< firstName << " " << lastName << ", " << gender << ", " << rating <<", " << yearOfBirth << ", " << yearOfCareerStart << std::endl;
 }

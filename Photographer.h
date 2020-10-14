@@ -34,6 +34,7 @@ public:
     virtual ~Photographer();
     void serialize(const std::string& filename);
     void deserialize(const std::string&filename);
+    void takeSomePictures();
 private:
     std::string firstName;
     std::string lastName;
@@ -44,4 +45,4 @@ private:
 };
 
 
-#endif //LABTWOCPP_PHOTOGRAPHER_H
+#endif LABTWOCPP_PHOTOGRAPHER_H
