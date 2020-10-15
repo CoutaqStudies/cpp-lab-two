@@ -4,18 +4,26 @@
 #include <random>
 #include "Photographer.h"
 #include "Fraction.h"
+#include "Vector.h"
 #include <ctime>
 
 
 int getRandomNumber(int min, int max);
-void taskThree();
+void taskOne();
 void taskTwo();
+void taskThree();
 
 int main() {
-    taskTwo();
+    taskThree();
     return 0;
 }
-
+#pragma region Task Two
+void taskOne(){
+    double arr [3] = {4, 5, 2};
+    Vector vec = Vector(arr, 3);
+    vec.printVector();
+}
+#pragma region Task One
 #pragma region Task Two
 //Преобразование: 2D → 1D. Двумерный массив 4х4 вещественных чисел необходимо
 //        выложить в один ряд по элементам слева направо и снизу вверх.
@@ -89,7 +97,6 @@ void taskTwo(){
 
 
 #pragma endregion
-
 #pragma region Task Three
 void taskThree(){
     /*
@@ -108,25 +115,28 @@ void taskThree(){
     если количество проголосовавших людей меньше 10, то не наращивать рейтинг). 
     Вывести список фотографов в порядке убывания суммарного рейтинга.
     */
-    Photographer ph0, ph1, ph2 = Photographer("test", "d", "m", 2, 1950, 2001);
-    // phHeap[0] = Photographer();
-    ph0.setFirstName("A");
-    ph0.setLastName("B");
-    ph0.setGender("C");
-    ph0.setRating(3);
-    ph0.setYearOfBirth(2000);
-    ph0.setYearOfCareerStart(2015);
-    // phHeap[1] = Photographer();
-    ph1.setFirstName("sdsdX");
-    ph1.setLastName("Y");
-    ph1.setGender("Z");
-    ph1.setRating(4.3);
-    ph1.setYearOfBirth(2000);
-    ph1.setYearOfCareerStart(2015);
+    Photographer ph0, ph1, ph2 = Photographer("Nadezhda", "Krupskaya", "F", 4, 1869, 1903);
+
+    ph0.setFirstName("Alexander");
+    ph0.setLastName("Pushkin");
+    ph0.setGender("M");
+    ph0.setRating(4.1);
+    ph0.setYearOfBirth(1799);
+    ph0.setYearOfCareerStart(1813);
+
+    ph1.setFirstName("Leo");
+    ph1.setLastName("Tolstoy");
+    ph1.setGender("M");
+    ph1.setRating(3.5);
+    ph1.setYearOfBirth(1828);
+    ph1.setYearOfCareerStart(1847);
+
     ph0.printInfo();
     ph1.printInfo();
     ph2.printInfo();
+
     std::cout<< "---SIMULATING TAKING PICTURES---" << std::endl;
+
     ph0.takeSomePictures();
     ph1.takeSomePictures();
     ph2.takeSomePictures();
@@ -134,5 +144,33 @@ void taskThree(){
     ph0.printInfo();
     ph1.printInfo();
     ph2.printInfo();
+    std::cout<< "---SORTED BY RATING---" << std::endl;
+
+    if(ph0.getRating()>=ph1.getRating()){
+        if(ph1.getRating()>=ph2.getRating()){
+            ph0.printInfo();  
+            ph1.printInfo();
+            ph2.printInfo();      
+        }else{
+            ph0.printInfo();  
+            ph2.printInfo();
+            ph1.printInfo();    
+        }
+    }else{
+        if(ph0.getRating()>=ph2.getRating()){
+            ph1.printInfo();  
+            ph0.printInfo();
+            ph2.printInfo();    
+        }else{
+            ph1.printInfo();  
+            ph2.printInfo();
+            ph0.printInfo();    
+        }
+    }
+
+    ph0.serialize("pushkin.txt");
+    ph0.deserialize("santa.txt");
+    std::cout<< "---LOADED FROM FILE santa.txt---" << std::endl;
+    ph0.printInfo();
 }
 #pragma endregion

@@ -12,6 +12,7 @@
 рейтинга.*/
 #include "Photographer.h"
 #include <iostream>
+#include <fstream>
 #include <random>
 
 Photographer::Photographer() {
@@ -76,9 +77,26 @@ void Photographer::setYearOfCareerStart(int yearOfCareerStart) {
     Photographer::yearOfCareerStart = yearOfCareerStart;
 }
 void Photographer::serialize(const std::string&filename) {
-
+    std::ofstream file;
+    file.open (filename);
+    file << firstName << "\n" << lastName << "\n" << gender << "\n" << rating <<"\n" << yearOfBirth << "\n" << yearOfCareerStart;
+    file.close();
 }
 void Photographer::deserialize(const std::string&filename){
+    const size_t SIZE = 6;
+    std::string line[SIZE];
+    size_t i=0;
+    std::ifstream file (filename);
+    while(!file.eof() && i < SIZE) {
+        getline(file,line[i]); 
+        ++i;
+    }  
+    firstName = line[0];
+    lastName = line[1];
+    gender = line[2];
+    rating = stod(line[3]);
+    yearOfBirth = stoi(line[4]);
+    yearOfCareerStart = stoi(line[5]);
 }
 
 Photographer::~Photographer() {
