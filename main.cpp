@@ -17,27 +17,45 @@ int main() {
     taskOne();
     return 0;
 }
-#pragma region Task Two
-
-double sum(int i, int j){
-    return i+j;
-}
-void taskOne(){
-    double arr [3] = {4, 5, 2};
-    Vector vec = Vector(arr, 3);
-    // vec.printVector();
-
-    Matrix m = Matrix(3, 3, sum);
-    m.printMatrix();
-}
-
 #pragma region Task One
-#pragma region Task Two
 //Преобразование: 2D → 1D. Двумерный массив 4х4 вещественных чисел необходимо
 //        выложить в один ряд по элементам слева направо и снизу вверх.
 //Инициализация: заполнить массив числами x[i][j] = √(i + j + 1).
 //Вывод на экран: каждый элемент одномерного массива вывести с точностью четыре
 //знака после запятой; каждый элемент двумерного массива – с точностью два знака.
+double getElement(int i, int j){
+    return sqrt(i+j+1);
+}
+void taskOne(){
+    // double arr [3] = {4, 5, 2};
+    // Vector vec = Vector(arr, 3);
+    // // vec.printVector();
+    // delete &vec;
+
+    Matrix m = Matrix(4, 4, getElement);
+    // printf("test");
+    m.printMatrix();
+
+    Vector v = Vector(m);
+    
+    v.printVector();
+    // printf("test1");
+}
+#pragma endregion
+#pragma region Task Two
+/*Написать класс Fraction для представления обыкновенных дробей (как отношения двух целых чисел x/y).
+ Перегрузить операторы +, -, *, / для дробей. 
+ Реализовать метод void reduce() для сокращения дроби, а также статические методы:
+ int gcd(int n, int m)
+функция для нахождения наибольшего общего делителя чисел n и m;
+ void printAsFraction(double decimal_fraction)
+ void printAsFraction(char* decimal_fraction)
+перегруженные методы вывода десятичной дроби в виде обыкновенной 
+(например, при значении decimal_fraction = 0.43 на экране должно вывестись 43/100, при 0.25 – 1/4 и т.д.).
+Также реализовать в виде статического члена класса счетчик всех созданных на данный момент в программе экземпляров дробей.
+Продемонстрировать работу созданного класса. Создать несколько объектов дробей. 
+Произвести операции сложения, вычитания, умножения и деления дробей. Вывести на экран результаты. 
+Показать также результаты работы статических методов класса.*/
 void taskTwo(){
     Fraction fr0 = Fraction(6, 10);
     std::cout << "First fraction:" << std::endl;
@@ -79,31 +97,6 @@ void taskTwo(){
     Fraction::printAsFraction(0.43);
     Fraction::printAsFraction("0.25");
 }
-// const int arr_size = 4;
-// double arrayOfDouble[arr_size][arr_size];
-// double taskTwo(){
-//     printf("[");
-//     for (int i = 0; i < arr_size; i++) {
-//         for (int j = 0; j < arr_size; j++) {
-//             arrayOfDouble[i][j] = sqrt(i+j+1);
-//             printf(" %.3g", arrayOfDouble[i][j]);
-//         }
-//         if(i != arr_size-1)
-//          printf("\n");
-//     }
-//     printf(" ]");
-//     printf("\n=>");
-//     printf("\n[");
-//     for (int i = arr_size-1; i >= 0; i--) {
-//         for (int j = 0; j < arr_size; j++) {
-//             printf(" %.5g", arrayOfDouble[i][j]);
-//         }
-//     }
-//     printf("]");
-//     return 0;
-// }
-
-
 #pragma endregion
 #pragma region Task Three
 void taskThree(){

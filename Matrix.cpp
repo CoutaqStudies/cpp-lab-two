@@ -21,10 +21,10 @@ Matrix::Matrix(int _rows, int _columns, double (*function)(int, int)){
   
     rows = _rows;
     columns = _columns;
-    array = new double*[columns];
-    for (int i = 0; i < columns; i++)
+    array = new double*[rows];
+    for (int i = 0; i < rows; i++)
 	{
-		*(array + i) = new double[rows];
+		*(array + i) = new double[columns];
 	}
     for(int i = 0; i < rows; i++){
         for(int j = 0; j< columns; j++){
@@ -41,23 +41,30 @@ for (size_t i = 0; i < rows; i++)
 	delete[] array;
 }
 
-int Matrix::getSize(){
-    return rows*columns;
+int Matrix::getRows(){
+    return rows;
+}
+int Matrix::getColumns(){
+    return columns;
 }
 
 double Matrix::at(int i, int j){
-
+    return (*(*(array + i) + j));
 }
 void Matrix::setAt(int i, int j, double val){
-
-
+    array[i][j] = val;
 }
 void Matrix::printMatrix(){
-    for(int i = 0; i <rows; i++){
-        for(int j = 0; j< columns;j++){
-          std::cout << *(*(array + i) + j) <<" ";
+    printf("[");
+    for(int i = 0; i<rows; i++){
+        for(int j = 0;j<columns;j++){
+            if(i!=0 || j>0)
+                printf(" ");
+            printf(" %.2f", (*(*(array + i) + j)));
+        //   printf(" ");
         }
-        std::cout<<"\n";
+        if(i!=rows-1)
+         printf("\n");
     }
-    std::cout<<std::endl;
+    printf(" ]\n");
 }

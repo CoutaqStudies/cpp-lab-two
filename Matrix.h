@@ -21,11 +21,12 @@ class Matrix {
         Matrix(int rows, int columns, double (*function)(int, int));
         ~Matrix();
 
-        int getSize();
+        int getRows();
+        int getColumns();
 
         double at(int i, int j);
         void setAt(int i, int j, double val);
-        
+
         void printMatrix();
     private:
         int rows;
