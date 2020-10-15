@@ -13,14 +13,19 @@ setAt(int i, int j, T val), которые позволяют получить �
 Смысл инкремента / декремента всего массива заключается в инкременте / декременте каждого элемента массива.*/
 
 #include "Vector.h"
+#include "Matrix.h"
 #include <iostream>
 
 Vector::Vector(){
+}
+Vector::Vector(Matrix matrix){
+    //TODO
 }
 Vector::Vector(double* _array, int _size){
     array = _array;
     size = _size;
 }
+
 Vector::~Vector(){
     delete[] array;
 }
@@ -50,7 +55,6 @@ void Vector::operator--(){
 }
 
 void Vector::printVector(){
-    std::cout<< size<< std::endl;
     std::cout<< "[ ";
     for(int i =0; i< size; i++){
         if(i!= size-1)

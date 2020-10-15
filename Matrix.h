@@ -11,32 +11,26 @@ setAt(int i, int j, T val), которые позволяют получить �
  T – это тип элементов массива по варианту (int или double).
  Перегрузить операторы инкремента и декремента (как префиксного, так и постфиксного). 
 Смысл инкремента / декремента всего массива заключается в инкременте / декременте каждого элемента массива.*/
-#ifndef LABTWOCPP_VECTOR_H
-#define LABTWOCPP_VECTOR_H
+#ifndef LABTWOCPP_MATRIX_H
+#define LABTWOCPP_MATRIX_H
 #include <iostream>
-#include "Matrix.h"
 
-class Vector {
+class Matrix {
     public:
-        Vector();
-        Vector(Matrix matrix);
-        Vector(double* _array, int _size);
-        ~Vector();
+        Matrix();
+        Matrix(int rows, int columns, double (*function)(int, int));
+        ~Matrix();
 
-        void setArray(double* _array);
-        double* getArray();
         int getSize();
 
-        double& operator[] (int index);
-        void operator++();
-        // void operator++(int);
-        void operator--();
-        // void operator--(int);
-
-        void printVector();
+        double at(int i, int j);
+        void setAt(int i, int j, double val);
+        
+        void printMatrix();
     private:
-        int size;
-        double* array;
+        int rows;
+        int columns;
+        double** array;
 };
 
-#endif LABTWOCPP_VECTOR_H
+#endif LABTWOCPP_MATRIX_H

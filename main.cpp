@@ -14,15 +14,23 @@ void taskTwo();
 void taskThree();
 
 int main() {
-    taskThree();
+    taskOne();
     return 0;
 }
 #pragma region Task Two
+
+double sum(int i, int j){
+    return i+j;
+}
 void taskOne(){
     double arr [3] = {4, 5, 2};
     Vector vec = Vector(arr, 3);
-    vec.printVector();
+    // vec.printVector();
+
+    Matrix m = Matrix(3, 3, sum);
+    m.printMatrix();
 }
+
 #pragma region Task One
 #pragma region Task Two
 //Преобразование: 2D → 1D. Двумерный массив 4х4 вещественных чисел необходимо

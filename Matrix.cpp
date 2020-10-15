@@ -11,32 +11,53 @@ setAt(int i, int j, T val), которые позволяют получить �
  T – это тип элементов массива по варианту (int или double).
  Перегрузить операторы инкремента и декремента (как префиксного, так и постфиксного). 
 Смысл инкремента / декремента всего массива заключается в инкременте / декременте каждого элемента массива.*/
-#ifndef LABTWOCPP_VECTOR_H
-#define LABTWOCPP_VECTOR_H
 #include <iostream>
 #include "Matrix.h"
 
-class Vector {
-    public:
-        Vector();
-        Vector(Matrix matrix);
-        Vector(double* _array, int _size);
-        ~Vector();
+Matrix::Matrix(){
 
-        void setArray(double* _array);
-        double* getArray();
-        int getSize();
+}
+Matrix::Matrix(int _rows, int _columns, double (*function)(int, int)){
+  
+    rows = _rows;
+    columns = _columns;
+    array = new double*[columns];
+    for (int i = 0; i < columns; i++)
+	{
+		*(array + i) = new double[rows];
+	}
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j< columns; j++){
+            array[i][j] = function(i,j);
+        }
+    }
+    // array = output;
+}
+Matrix::~Matrix(){
+for (size_t i = 0; i < rows; i++)
+	{
+		delete[] * (array + i);
+	}
+	delete[] array;
+}
 
-        double& operator[] (int index);
-        void operator++();
-        // void operator++(int);
-        void operator--();
-        // void operator--(int);
+int Matrix::getSize(){
+    return rows*columns;
+}
 
-        void printVector();
-    private:
-        int size;
-        double* array;
-};
+double Matrix::at(int i, int j){
 
-#endif LABTWOCPP_VECTOR_H
+}
+void Matrix::setAt(int i, int j, double val){
+
+
+}
+void Matrix::printMatrix(){
+    for(int i = 0; i <rows; i++){
+        for(int j = 0; j< columns;j++){
+          std::cout << *(*(array + i) + j) <<" ";
+        }
+        std::cout<<"\n";
+    }
+    std::cout<<std::endl;
+}
