@@ -14,6 +14,8 @@ void taskTwo();
 void taskThree();
 
 int main() {
+    taskTwo();
+    taskThree();
     taskOne();
     return 0;
 }
@@ -27,19 +29,17 @@ double getElement(int i, int j){
     return sqrt(i+j+1);
 }
 void taskOne(){
-    // double arr [3] = {4, 5, 2};
-    // Vector vec = Vector(arr, 3);
-    // // vec.printVector();
-    // delete &vec;
 
     Matrix m = Matrix(4, 4, getElement);
-    // printf("test");
     m.printMatrix();
 
-    Vector v = Vector(m);
+    try{
+        Vector v = Vector(m);
+      v.printVector();
+    }catch(...){
+
+    }
     
-    v.printVector();
-    // printf("test1");
 }
 #pragma endregion
 #pragma region Task Two

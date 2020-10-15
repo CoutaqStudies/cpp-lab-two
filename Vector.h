@@ -20,22 +20,17 @@ class Vector {
     public:
         Vector();
         Vector(Matrix matrix);
-        Vector(double* _array, int _size);
         ~Vector();
-
-        void setArray(double* _array);
-        double* getArray();
-        int getSize();
 
         double& operator[] (int index);
         void operator++();
-        // void operator++(int);
+        void operator++(int);
         void operator--();
-        // void operator--(int);
+        void operator--(int);
 
         void printVector();
     private:
-        int size;
+        const int size = 16;
         double* array;
 };
 

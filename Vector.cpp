@@ -23,31 +23,20 @@ setAt(int i, int j, T val), которые позволяют получить �
 #include <iostream>
 
 Vector::Vector(){
+   array = new double[size];
 }
 Vector::Vector(Matrix matrix){
-   for (int i = matrix.getRows()-1; i >= 0; i--) {
+    array = new double[size];
+    int index = 0;
+    for (int i = matrix.getRows()-1; i >= 0; i--) {
         for (int j = 0; j < matrix.getColumns(); j++) {
-            printf(" %.5g", matrix.at(i,j));
+          *(array+index) = (" %.5g", matrix.at(i,j));
+          index++;
         }
     }
 }
-Vector::Vector(double* _array, int _size){
-    array = _array;
-    size = _size;
-}
-
 Vector::~Vector(){
     delete[] array;
-}
-
-void Vector::setArray(double* _array){
-    array = _array;
-}
-double* Vector::getArray(){
-    return array;
-}
-int Vector::getSize(){
-    return size;
 }
 
 double& Vector::operator[] (const int index){
@@ -58,10 +47,26 @@ void Vector::operator++(){
         array[i]++;
     }
 }
-void Vector::operator--(){
- for(int i =0; i< size; i++){
-        array[i]--;
-    }
+void Vector:: operator++(int)
+{
+	for (int i = 0; i < size; i++)
+	{
+		(* (array + i))++;
+	}
+}
+void Vector:: operator--()
+{
+	for (int i = 0; i < size; i++)
+	{
+		--*(array + i);
+	}
+}
+void Vector:: operator--(int)
+{
+	for (int i = 0; i < size; i++)
+	{
+		(* (array + i))--;
+	}
 }
 
 void Vector::printVector(){
