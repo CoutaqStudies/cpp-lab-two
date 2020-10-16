@@ -113,3 +113,6 @@ void Photographer::takeSomePictures(){
 void Photographer::printInfo() {
     std::cout<< firstName << " " << lastName << ", " << gender << ", " << rating <<", " << yearOfBirth << ", " << yearOfCareerStart << std::endl;
 }
+bool Photographer::operator <(const Photographer & photographerObj) const{
+    return rating < photographerObj.rating;
+}

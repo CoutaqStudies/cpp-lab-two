@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.17)
-project(LabTwoCpp)
+cmake_minimum_required(VERSION 3.0.0)
+project(lab-two-cpp VERSION 0.1.0)
 
-set(CMAKE_CXX_STANDARD 14)
+include(CTest)
+enable_testing()
 
-add_executable(LabTwoCpp main.cpp Photographer.cpp Photographer.h)
+add_executable(lab-two-cpp main.cpp Fraction.cpp Vector.cpp Matrix.cpp Photographer.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

@@ -35,6 +35,7 @@ public:
     void serialize(const std::string& filename);
     void deserialize(const std::string&filename);
     void takeSomePictures();
+    bool operator <(const Photographer & photographerObj) const;
 private:
     std::string firstName;
     std::string lastName;

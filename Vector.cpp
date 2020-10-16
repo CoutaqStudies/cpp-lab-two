@@ -23,24 +23,25 @@ setAt(int i, int j, T val), которые позволяют получить �
 #include <iostream>
 
 Vector::Vector(){
-   array = new double[size];
 }
 Vector::Vector(Matrix matrix){
-    array = new double[size];
+    size = matrix.getColumns()*matrix.getRows();
     int index = 0;
+    array = new double[size];
     for (int i = matrix.getRows()-1; i >= 0; i--) {
         for (int j = 0; j < matrix.getColumns(); j++) {
-          *(array+index) = (" %.5g", matrix.at(i,j));
-          index++;
+            *(array+index) = (" %.5g", matrix.at(i,j));
+            std::cout<<index<<".Pointer at address "<<(array+index)<< " contains "<<*(array+index)<<std::endl;
+            ++index;
         }
     }
 }
 Vector::~Vector(){
-    delete[] array;
+   delete[] array;
 }
 
-double& Vector::operator[] (const int index){
-    return array[index];
+double Vector::operator[] (const int index){
+    return (array[index]);
 }
 void Vector::operator++(){
     for(int i =0; i< size; i++){

@@ -34,7 +34,7 @@ Matrix::Matrix(int _rows, int _columns, double (*function)(int, int)){
     // array = output;
 }
 Matrix::~Matrix(){
-for (size_t i = 0; i < rows; i++)
+for (size_t i = 0; i < rows; ++i)
 	{
 		delete[] * (array + i);
 	}

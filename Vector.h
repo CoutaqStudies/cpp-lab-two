@@ -22,7 +22,7 @@ class Vector {
         Vector(Matrix matrix);
         ~Vector();
 
-        double& operator[] (int index);
+        double operator[] (int index);
         void operator++();
         void operator++(int);
         void operator--();
@@ -30,7 +30,7 @@ class Vector {
 
         void printVector();
     private:
-        const int size = 16;
+        int size;
         double* array;
 };
 

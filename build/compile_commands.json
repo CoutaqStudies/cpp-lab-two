@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/Users/coutaq/Documents/VSCode/lab-two-cpp/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/lab-two-cpp.dir/main.cpp.o -c /Users/coutaq/Documents/VSCode/lab-two-cpp/main.cpp",
+  "file": "/Users/coutaq/Documents/VSCode/lab-two-cpp/main.cpp"
+},
+{
+  "directory": "/Users/coutaq/Documents/VSCode/lab-two-cpp/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/lab-two-cpp.dir/Fraction.cpp.o -c /Users/coutaq/Documents/VSCode/lab-two-cpp/Fraction.cpp",
+  "file": "/Users/coutaq/Documents/VSCode/lab-two-cpp/Fraction.cpp"
+},
+{
+  "directory": "/Users/coutaq/Documents/VSCode/lab-two-cpp/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/lab-two-cpp.dir/Vector.cpp.o -c /Users/coutaq/Documents/VSCode/lab-two-cpp/Vector.cpp",
+  "file": "/Users/coutaq/Documents/VSCode/lab-two-cpp/Vector.cpp"
+},
+{
+  "directory": "/Users/coutaq/Documents/VSCode/lab-two-cpp/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/lab-two-cpp.dir/Matrix.cpp.o -c /Users/coutaq/Documents/VSCode/lab-two-cpp/Matrix.cpp",
+  "file": "/Users/coutaq/Documents/VSCode/lab-two-cpp/Matrix.cpp"
+},
+{
+  "directory": "/Users/coutaq/Documents/VSCode/lab-two-cpp/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o CMakeFiles/lab-two-cpp.dir/Photographer.cpp.o -c /Users/coutaq/Documents/VSCode/lab-two-cpp/Photographer.cpp",
+  "file": "/Users/coutaq/Documents/VSCode/lab-two-cpp/Photographer.cpp"
+}
+]

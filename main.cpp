@@ -32,14 +32,8 @@ void taskOne(){
 
     Matrix m = Matrix(4, 4, getElement);
     m.printMatrix();
-
-    try{
-        Vector v = Vector(m);
-      v.printVector();
-    }catch(...){
-
-    }
-    
+    Vector v = Vector(m);
+    v.printVector(); 
 }
 #pragma endregion
 #pragma region Task Two
