@@ -27,7 +27,13 @@ class Matrix {
         double at(int i, int j);
         void setAt(int i, int j, double val);
 
-        void printMatrix();
+        void operator++();
+        void operator++(int);
+        void operator--();
+        void operator--(int);
+
+        void printFormatted();
+        friend std::ostream& operator<< (std::ostream &out, const Matrix &matrix);
     private:
         int rows;
         int columns;

@@ -30,12 +30,13 @@ public:
     void setRating(double rating);
     void setYearOfBirth(int yearOfBirth);
     void setYearOfCareerStart(int yearOfCareerStart);
-    void printInfo();
     virtual ~Photographer();
     void serialize(const std::string& filename);
     void deserialize(const std::string&filename);
     void takeSomePictures();
     bool operator <(const Photographer & photographerObj) const;
+    static void sortByRating(Photographer *photographers[], int size = totalPhotographers);
+    friend std::ostream& operator<< (std::ostream &out, const Photographer &photographer);
 private:
     std::string firstName;
     std::string lastName;
@@ -43,6 +44,7 @@ private:
     double rating;
     int yearOfBirth;
     int yearOfCareerStart;
+    static int totalPhotographers;
 };
 
 

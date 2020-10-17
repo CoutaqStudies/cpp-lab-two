@@ -14,9 +14,11 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <list>
 
+int Photographer::totalPhotographers = 0;
 Photographer::Photographer() {
-
+    totalPhotographers++;
 }
 
 Photographer::Photographer(std::string _firstName, std::string _lastName, std::string _gender, double _rating, int _yearOfBirth,
@@ -27,6 +29,7 @@ Photographer::Photographer(std::string _firstName, std::string _lastName, std::s
     rating = _rating;
     yearOfBirth = _yearOfBirth;
     yearOfCareerStart = _yearOfCareerStart;
+    totalPhotographers++;
 }
 
 std::string Photographer::getFirstName() {
@@ -110,9 +113,24 @@ void Photographer::takeSomePictures(){
         this->rating+=newRating;
     }
 }
-void Photographer::printInfo() {
-    std::cout<< firstName << " " << lastName << ", " << gender << ", " << rating <<", " << yearOfBirth << ", " << yearOfCareerStart << std::endl;
-}
 bool Photographer::operator <(const Photographer & photographerObj) const{
     return rating < photographerObj.rating;
+}
+
+void Photographer::sortByRating(Photographer *photographers[], int size) {
+    std::list<Photographer> list;
+    for(int i  = 0; i<size; i++){
+        list.push_back(*photographers[i]);
+    }
+    list.sort();
+    list.reverse();
+    for(int i  = 0; i<size; i++){
+        *photographers[i] = list.front();
+        list.pop_front();
+    }
+}
+
+std::ostream &operator<<(std::ostream &out, const Photographer &photographer) {
+    out << photographer.firstName << " " << photographer.lastName << ", " << photographer.gender << ", " << photographer.rating <<"★, " << photographer.yearOfBirth << ", " << photographer.yearOfCareerStart;
+    return out;
 }

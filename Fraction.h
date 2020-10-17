@@ -40,6 +40,8 @@ class Fraction {
         static int lcm(int a, int b);
         static void printAsFraction(char* decimal_fraction);
         static void printAsFraction(double decimal_fraction);
+
+        friend std::ostream& operator<< (std::ostream &out, const Fraction &fraction);
     private:
         int x;
         int y;

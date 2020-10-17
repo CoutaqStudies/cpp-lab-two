@@ -1,5 +1,4 @@
 # Project exclude paths
-/cmake-build-debug/
 # Prerequisites
 *.d
 
@@ -31,6 +30,7 @@
 
 # Executables
 *.exe
+
 *.out
 *.app
 
@@ -38,3 +38,19 @@
 **/.idea
 **/.vscode
 **/.build
+**/cmake-build-debug/CMakeFiles
+**/cmake-build-debug/Testing
+**/cmake-build-debug/cmake_install.cmake
+
+!/build/
+/cmake-build-debug/CMakeCache.txt
+/cmake-build-debug/CPackConfig.cmake
+/cmake-build-debug/CPackSourceConfig.cmake
+/cmake-build-debug/CTestTestfile.cmake
+/cmake-build-debug/DartConfiguration.tcl
+/cmake-build-debug/lab-two-cpp
+/cmake-build-debug/lab-two-cpp.cbp
+/cmake-build-debug/Makefile
+/cmake-build-debug/pushkin.txt
+/build/
+!/build/

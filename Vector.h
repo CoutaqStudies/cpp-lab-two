@@ -28,7 +28,8 @@ class Vector {
         void operator--();
         void operator--(int);
 
-        void printVector();
+        void printFormatted();
+        friend std::ostream& operator<< (std::ostream &out, const Vector &vector);
     private:
         int size;
         double* array;

@@ -1,22 +1,19 @@
 #include <iostream>
 #include <algorithm>
-#include <stack>
-#include <random>
 #include "Photographer.h"
 #include "Fraction.h"
 #include "Vector.h"
-#include <ctime>
+#include "Matrix.h"
 
 
-int getRandomNumber(int min, int max);
 void taskOne();
 void taskTwo();
 void taskThree();
 
 int main() {
+    taskOne();
     taskTwo();
     taskThree();
-    taskOne();
     return 0;
 }
 #pragma region Task One
@@ -29,11 +26,18 @@ double getElement(int i, int j){
     return sqrt(i+j+1);
 }
 void taskOne(){
-
-    Matrix m = Matrix(4, 4, getElement);
-    m.printMatrix();
-    Vector v = Vector(m);
-    v.printVector(); 
+    std::cout<< "-------------------- TASK ONE --------------------" << std::endl;
+    auto* m = new Matrix(4, 4, getElement);
+    std::cout<<"Nonformatted using '<<'\n"<<*m<<std::endl;
+    std::cout<<"Formatted:"<<std::endl;
+    m->printFormatted();
+    std::cout<<"=>"<<std::endl;
+    auto* v = new Vector(*m);
+    v->printFormatted();
+    std::cout<<"Nonformatted using '<<'\n"<<*v<<std::endl;
+    std::cout<<"\nElement at index [2] is: "<<(*v)[2]<<std::endl;
+    (*v)++;
+    std::cout<<"\nVector incremented:\n"<<*v<<std::endl;
 }
 #pragma endregion
 #pragma region Task Two
@@ -51,42 +55,31 @@ void taskOne(){
 Произвести операции сложения, вычитания, умножения и деления дробей. Вывести на экран результаты. 
 Показать также результаты работы статических методов класса.*/
 void taskTwo(){
+    std::cout<< "-------------------- TASK TWO --------------------" << std::endl;
     Fraction fr0 = Fraction(6, 10);
-    std::cout << "First fraction:" << std::endl;
-    fr0.printFraction();
-    std::cout << "First fraction(reduced):" << std::endl;
+    std::cout << "First fraction: "<<fr0 << std::endl;
     fr0.reduce();
-    fr0.printFraction();
+    std::cout << "First fraction(reduced): "<<fr0 << std::endl;
     Fraction fr1 = Fraction(2, 4);
-    std::cout << "Second fraction:" << std::endl;
-    fr1.printFraction();
-    std::cout << "Second fraction(reduced):" << std::endl;
+    std::cout << "Second fraction: "<<fr1 << std::endl;
     fr1.reduce();
-    fr1.printFraction();
+    std::cout << "Second fraction(reduced): "<<fr1 << std::endl;
     Fraction fr2 = fr0+fr1;
-    std::cout << "Sum of the two fractions:" << std::endl;
-    fr2.printFraction();
+    std::cout << "Sum of the two fractions: "<<fr2 << std::endl;
     fr2.reduce();
-    std::cout << "Sum of the two fractions(reduced):" << std::endl;
-    fr2.printFraction();
-    std::cout << "Difference of the two fractions:" << std::endl;
+    std::cout << "Sum of the two fractions(reduced): "<<fr2 << std::endl;
     Fraction fr3 = fr0-fr1;
-    fr3.printFraction();
+    std::cout << "Difference of the two fractions: "<<fr3 << std::endl;
     fr3.reduce();
-    std::cout << "Difference of the two fractions(reduced):" << std::endl;
-    fr3.printFraction();
-    std::cout << "Product of the two fractions:" << std::endl;
+    std::cout << "Difference of the two fractions(reduced): "<<fr3 << std::endl;
     Fraction fr4 = fr0*fr1;
-    fr4.printFraction();
+    std::cout << "Product of the two fractions: "<<fr4 << std::endl;
     fr4.reduce();
-    std::cout << "Product of the two fractions(reduced):" << std::endl;
-    fr4.printFraction();
-    std::cout << "Quotient of the two fractions:" << std::endl;
+    std::cout << "Product of the two fractions(reduced): "<<fr4 << std::endl;
     Fraction fr5 = fr0/fr1;
-    fr5.printFraction();
+    std::cout << "Quotient of the two fractions: "<<fr5 << std::endl;
     fr5.reduce();
-    std::cout << "Quotient of the two fractions(reduced):" << std::endl;
-    fr5.printFraction();
+    std::cout << "Quotient of the two fractions(reduced): "<<fr5 << std::endl;
     std::cout << "Total fractions: " << Fraction::getTotalFractions() << std::endl;
     Fraction::printAsFraction(0.43);
     Fraction::printAsFraction("0.25");
@@ -110,62 +103,51 @@ void taskThree(){
     если количество проголосовавших людей меньше 10, то не наращивать рейтинг). 
     Вывести список фотографов в порядке убывания суммарного рейтинга.
     */
-    Photographer ph0, ph1, ph2 = Photographer("Nadezhda", "Krupskaya", "F", 4, 1869, 1903);
+    std::cout<< "-------------------- TASK THREE --------------------" << std::endl;
+    auto* ph0 = new Photographer();
+    auto* ph1 = new Photographer();
+    Photographer ph2 = Photographer("Nadezhda", "Krupskaya", "F", 4, 1869, 1903);
 
-    ph0.setFirstName("Alexander");
-    ph0.setLastName("Pushkin");
-    ph0.setGender("M");
-    ph0.setRating(4.1);
-    ph0.setYearOfBirth(1799);
-    ph0.setYearOfCareerStart(1813);
+    ph0->setFirstName("Alexander");
+    ph0->setLastName("Pushkin");
+    ph0->setGender("M");
+    ph0->setRating(4.1);
+    ph0->setYearOfBirth(1799);
+    ph0->setYearOfCareerStart(1813);
 
-    ph1.setFirstName("Leo");
-    ph1.setLastName("Tolstoy");
-    ph1.setGender("M");
-    ph1.setRating(3.5);
-    ph1.setYearOfBirth(1828);
-    ph1.setYearOfCareerStart(1847);
+    ph1->setFirstName("Leo");
+    ph1->setLastName("Tolstoy");
+    ph1->setGender("M");
+    ph1->setRating(3.5);
+    ph1->setYearOfBirth(1828);
+    ph1->setYearOfCareerStart(1847);
 
-    ph0.printInfo();
-    ph1.printInfo();
-    ph2.printInfo();
+    std::cout<<*ph0<<std::endl;
+    std::cout<<*ph1<<std::endl;
+    std::cout<<ph2<<std::endl;
 
     std::cout<< "---SIMULATING TAKING PICTURES---" << std::endl;
 
-    ph0.takeSomePictures();
-    ph1.takeSomePictures();
+    ph0->takeSomePictures();
+    ph1->takeSomePictures();
     ph2.takeSomePictures();
 
-    ph0.printInfo();
-    ph1.printInfo();
-    ph2.printInfo();
+    std::cout<<*ph0<<std::endl;
+    std::cout<<*ph1<<std::endl;
+    std::cout<<ph2<<std::endl;
     std::cout<< "---SORTED BY RATING---" << std::endl;
 
-    if(ph0.getRating()>=ph1.getRating()){
-        if(ph1.getRating()>=ph2.getRating()){
-            ph0.printInfo();  
-            ph1.printInfo();
-            ph2.printInfo();      
-        }else{
-            ph0.printInfo();  
-            ph2.printInfo();
-            ph1.printInfo();    
-        }
-    }else{
-        if(ph0.getRating()>=ph2.getRating()){
-            ph1.printInfo();  
-            ph0.printInfo();
-            ph2.printInfo();    
-        }else{
-            ph1.printInfo();  
-            ph2.printInfo();
-            ph0.printInfo();    
-        }
-    }
+    Photographer *phArray[] = {ph0, ph1, &ph2};
+    Photographer::sortByRating(phArray);
+    std::cout<<*ph0<<std::endl;
+    std::cout<<*ph1<<std::endl;
+    std::cout<<ph2<<std::endl;
 
-    ph0.serialize("pushkin.txt");
-    ph0.deserialize("santa.txt");
+    ph0->serialize(ph0->getLastName()+".txt");
+    std::cout << "Photographer "<< ph0->getFirstName()<<" "<< ph0->getLastName()<< " saved to file " << ph0->getLastName() << ".txt." <<std::endl;
+
     std::cout<< "---LOADED FROM FILE santa.txt---" << std::endl;
-    ph0.printInfo();
+    ph0->deserialize("santa.txt");
+    std::cout<<*ph0<<std::endl;
 }
 #pragma endregion

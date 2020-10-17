@@ -30,8 +30,7 @@ Vector::Vector(Matrix matrix){
     array = new double[size];
     for (int i = matrix.getRows()-1; i >= 0; i--) {
         for (int j = 0; j < matrix.getColumns(); j++) {
-            *(array+index) = (" %.5g", matrix.at(i,j));
-            std::cout<<index<<".Pointer at address "<<(array+index)<< " contains "<<*(array+index)<<std::endl;
+            *(array+index) = matrix.at(i,j);
             ++index;
         }
     }
@@ -52,25 +51,36 @@ void Vector:: operator++(int)
 {
 	for (int i = 0; i < size; i++)
 	{
-		(* (array + i))++;
+		++(* (array + i));
 	}
 }
 void Vector:: operator--()
 {
 	for (int i = 0; i < size; i++)
 	{
-		--*(array + i);
+        (*(array + i))--;
 	}
 }
 void Vector:: operator--(int)
 {
 	for (int i = 0; i < size; i++)
 	{
-		(* (array + i))--;
+		--(* (array + i));
 	}
 }
 
-void Vector::printVector(){
+std::ostream &operator<<(std::ostream &out, const Vector &vector) {
+    out<<"[";
+    for(int i =0; i< vector.size; i++){
+        out<<*(vector.array+i);
+        if(i!= vector.size-1)
+            out<<" ";
+    }
+    out<<"]";
+    return out;
+}
+
+void Vector::printFormatted(){
     printf("[");
     for(int i =0; i< size; i++){
         printf(" %.5g", *(array+i));

@@ -31,7 +31,6 @@ Matrix::Matrix(int _rows, int _columns, double (*function)(int, int)){
             array[i][j] = function(i,j);
         }
     }
-    // array = output;
 }
 Matrix::~Matrix(){
 for (size_t i = 0; i < rows; ++i)
@@ -54,17 +53,62 @@ double Matrix::at(int i, int j){
 void Matrix::setAt(int i, int j, double val){
     array[i][j] = val;
 }
-void Matrix::printMatrix(){
+void Matrix::printFormatted(){
     printf("[");
     for(int i = 0; i<rows; i++){
         for(int j = 0;j<columns;j++){
             if(i!=0 || j>0)
                 printf(" ");
             printf(" %.2f", (*(*(array + i) + j)));
-        //   printf(" ");
         }
         if(i!=rows-1)
          printf("\n");
     }
     printf(" ]\n");
+}
+
+std::ostream &operator<<(std::ostream &out, const Matrix &matrix) {
+    out<<"[";
+    for(int i = 0; i<matrix.rows; i++){
+        for(int j = 0;j<matrix.columns;j++){
+            if(i!=0 || j>0)
+                out<<" ";
+            out<< *(*(matrix.array + i) + j);
+        }
+        if(i!=matrix.rows-1)
+            out<<"\n";
+    }
+    out<<" ]\n";
+    return out;
+}
+void Matrix::operator++(){
+    for(int i =0; i< rows; i++){
+        for(int j =0; j< columns; j++){
+            ++array[i][j];
+        }
+    }
+}
+void Matrix:: operator++(int)
+{
+    for(int i =0; i< rows; i++){
+        for(int j =0; j< columns; j++){
+            (*(*(array + i) + j))++;
+        }
+    }
+}
+void Matrix:: operator--()
+{
+    for(int i =0; i< rows; i++){
+        for(int j =0; j< columns; j++){
+            --array[i][j];
+        }
+    }
+}
+void Matrix:: operator--(int)
+{
+    for(int i =0; i< rows; i++){
+        for(int j =0; j< columns; j++){
+            (*(*(array + i) + j))--;
+        }
+    }
 }

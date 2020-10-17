@@ -168,3 +168,8 @@ void Fraction::printAsFraction(double decimal_fraction){
     result.reduce();
     result.printFraction();
 }
+
+std::ostream &operator<<(std::ostream &out, const Fraction &fraction) {
+    out<<fraction.x<<"/"<<fraction.y;
+    return out;
+}
